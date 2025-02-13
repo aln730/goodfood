@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Good Food</title>
+    <title>Good Food (Or Else...)</title>
     
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
-        /* Reset and Basic Styling */
         * {
             margin: 0;
             padding: 0;
@@ -54,11 +53,38 @@
             margin-bottom: 20px;
         }
 
+        /* Wobble effect on hover */
         img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        img:hover {
+            animation: wobble 0.4s infinite alternate;
+        }
+
+        @keyframes wobble {
+            0% { transform: rotate(-3deg); }
+            100% { transform: rotate(3deg); }
+        }
+
+        /* Feed Me button */
+        .feed-me {
+            background-color: #d9534f;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .feed-me:hover {
+            background-color: #c9302c;
         }
 
         /* Responsive Design */
@@ -78,8 +104,33 @@
 <body>
     <div class="container">
         <h1>GOOD FOOD IS WAITING!!</h1>
-        <p>Delicious meals coming your way soon! Stay tuned.</p>
+        <p id="funnyText">Loading deliciousness...</p>
         <img src="good-food.png" alt="A mouth-watering plate of delicious food">
+        <br><br>
+        <button class="feed-me" onclick="orderFood()">Feed Me Now!</button>
     </div>
+
+    <script>
+        // Funny text changes every few seconds
+        const messages = [
+            "Cooking up something legendary...",
+            "Your stomach just sent me a DM.",
+            "A five-star meal is on the way... maybe.",
+            "Hope you're not on a diet!",
+            "Calories don't count if you're laughing.",
+            "One does not simply ignore good food."
+        ];
+
+        function changeText() {
+            document.getElementById("funnyText").textContent = messages[Math.floor(Math.random() * messages.length)];
+        }
+
+        setInterval(changeText, 3000); // Changes text every 3 seconds
+
+        // Funny food ordering message
+        function orderFood() {
+            alert("Congrats! You have successfully ordered... nothing! Just kidding, go get yourself a snack.");
+        }
+    </script>
 </body>
 </html>
