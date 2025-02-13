@@ -20,6 +20,7 @@
             background-color: #f8f9fa;
             color: #333;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -27,21 +28,8 @@
             padding: 20px;
         }
 
-        .container {
-            max-width: 600px;
-            padding: 30px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .container:hover {
-            transform: scale(1.02);
-        }
-
         h1 {
-            color: #d9534f;
+            color: #000; /* Black text */
             font-size: 2.5em;
             margin-bottom: 10px;
             font-weight: 600;
@@ -81,6 +69,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background 0.3s ease-in-out;
+            margin-top: 20px;
         }
 
         .feed-me:hover {
@@ -89,9 +78,6 @@
 
         /* Responsive Design */
         @media (max-width: 480px) {
-            .container {
-                padding: 20px;
-            }
             h1 {
                 font-size: 2em;
             }
@@ -102,23 +88,17 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>GOOD FOOD IS WAITING!!</h1>
-        <p id="funnyText">Loading deliciousness...</p>
-        <img src="good-food.png" alt="A mouth-watering plate of delicious food">
-        <br><br>
-        <button class="feed-me" onclick="orderFood()">Feed Me Now!</button>
-    </div>
+    <h1>GOOD FOOD IS WAITING!!</h1>
+    <p id="funnyText">Best food on campus!</p>
+    <img src="good-food.png" alt="A mouth-watering plate of delicious food">
+    <button class="feed-me" onclick="orderFood()">Feed Me Now!</button>
 
     <script>
-        // Funny text changes every few seconds
+        // Your custom messages
         const messages = [
-            "Cooking up something legendary...",
-            "Your stomach just sent me a DM.",
-            "A five-star meal is on the way... maybe.",
-            "Hope you're not on a diet!",
-            "Calories don't count if you're laughing.",
-            "One does not simply ignore good food."
+            "Best food on campus!",
+            "If once have it, you'll always like it!",
+            "C'mon c'mon, good food is waiting for you!"
         ];
 
         function changeText() {
